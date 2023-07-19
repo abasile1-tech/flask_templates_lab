@@ -6,3 +6,6 @@ hogmanay = Event(datetime.date(2023, 12, 31), "Hogmanay", 100, "Princes Street",
 halloween = Event(datetime.date(2023, 10, 31), "Halloween", 30, "Edinburgh Castle", "Halloween party at the castle")
 
 event_list = [josh_birthday, hogmanay, halloween]
+
+def add_new_event(event):
+    event_list.append(event)

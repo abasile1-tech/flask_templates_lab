@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint, request
-from models.event_list import event_list
+from models.event_list import event_list, add_new_event
 from models.event import Event
 
 events_blueprint = Blueprint("events", __name__)
@@ -14,4 +14,15 @@ def events():
 
 @events_blueprint.route('/addevent')
 def add_event():
-    return render_template("add_event.jinja")
+    return render_template("add_event.jinja", title = "Add Event")
+
+@events_blueprint.route("/events", methods=["POST"])
+def post_event():
+    event_date = request.form["date"]
+    event_name = request.form["name"]
+    guest_capacity = request.form["guest capacity"]
+    location = request.form["location"]
+    description = request.form["description"]
+    new_event = Event(event_date, event_name, guest_capacity, location, description)
+    add_new_event(new_event)
+    return render_template("events.jinja", event_list = event_list, title = "Events List")
