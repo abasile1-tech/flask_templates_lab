@@ -7,7 +7,19 @@
 </head>
 <body>
     <main>
-        <form action="/events"></form>
+        <form action="/events" method="post">
+            <label for="date">Event Date</label>
+            <input type="date" name="date">
+            <label for="name">Event Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter the event name:">
+            <label for="guest capacity">Guest Capacity</label>
+            <input type="number" name="guest capacity">
+            <label for="location">Event Location</label>
+            <input type="text" name="location" placeholder="Enter the event address">
+            <label for="description">Event Description</label>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter a description of the event:"></textarea>
+            <input type="submit" value="Create Event">
+        </form>
     </main>
     
 </body>
