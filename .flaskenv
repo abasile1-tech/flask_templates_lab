@@ -1,2 +1,2 @@
-.flaskenv
-__pycache__
+FLASK_DEBUG=true
+FLASK_RUN_PORT=4999
