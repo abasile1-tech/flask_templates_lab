@@ -6,6 +6,25 @@
     <title>Document</title>
 </head>
 <body>
+    <table>
+		<tr>
+			<th>Event Date</th> 
+			<th>Event Name</th> 
+			<th>Guest Capacity</th> 
+			<th>Event Location</th> 
+			<th>Event Description</th> 
+		</tr>
+		
+		{% for event in event_list  %}
+			<tr>
+				<td>{{ event.date }}</td>
+                <td>{{ event.name }}</td>
+                <td>{{ event.guest_capacity }}</td>
+                <td>{{ event.location }}</td>
+                <td>{{ event.description }}</td>
+			</tr>
+		{% endfor %}
+	</table>
     
 </body>
 </html>
