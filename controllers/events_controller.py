@@ -4,9 +4,14 @@ from models.event import Event
 
 events_blueprint = Blueprint("events", __name__)
 
-@events_blueprint.route('/events')
+@events_blueprint.route("/")
 def index():
-    return "Hello World"
-@events_blueprint.route('/events', methods=['POST'])
+    return render_template("index.jinja", title = "Events Home")
+
+@events_blueprint.route('/events')
+def events():
+    return render_template("events.jinja", title = "Events List", event_list = event_list)
+
+@events_blueprint.route('/addevent')
 def add_event():
-    pass
+    return render_template("add_event.jinja")
