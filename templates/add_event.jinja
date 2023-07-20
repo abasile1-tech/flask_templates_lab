@@ -13,14 +13,22 @@
             <label for="name">Event Name</label>
             <input type="text" name="name" id="name" placeholder="Enter the event name:">
             <label for="guest capacity">Guest Capacity</label>
-            <input type="number" name="guest capacity">
+            <input type="number" name="guest capacity" min="0">
             <label for="location">Event Location</label>
             <input type="text" name="location" placeholder="Enter the event address">
             <label for="description">Event Description</label>
             <textarea name="description" id="description" cols="30" rows="10" placeholder="Enter a description of the event:"></textarea>
+            <label for="recurring_checkbox">Is your Event recurring?</label>
+            <input type="checkbox" name="recurring_checkbox"/>
             <input type="submit" value="Create Event">
         </form>
     </main>
+
+    {% block content %}
+
+
+
+    {% endblock %}
     
 </body>
 </html>

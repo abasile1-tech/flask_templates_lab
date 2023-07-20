@@ -1,3 +1,4 @@
+{% extends "add_event.jinja" %}{% block content%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,10 +25,12 @@
                 <td>{{ event.guest_capacity }}</td>
                 <td>{{ event.location }}</td>
                 <td>{{ event.description }}</td>
-                <td><input type="checkbox"></td>
+                <td> {% if event.event_recurring %}
+                    <span> &#9989 </span>
+                    {% endif %}</td>
 			</tr>
 		{% endfor %}
 	</table>
-    
 </body>
 </html>
+{% endblock %}
