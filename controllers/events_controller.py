@@ -23,6 +23,15 @@ def post_event():
     guest_capacity = request.form["guest capacity"]
     location = request.form["location"]
     description = request.form["description"]
-    new_event = Event(event_date, event_name, guest_capacity, location, description)
+    if 'recurring_checkbox' in request.form:
+        event_recurring = True
+    else: 
+        event_recurring = False
+    new_event = Event(event_date, event_name, guest_capacity, location, description, event_recurring)
     add_new_event(new_event)
+    return render_template("events.jinja", event_list = event_list, title = "Events List")
+
+@events_blueprint.route("/events/<index>/delete", methods=["get", "post"])
+def delete_event(index):
+    del event_list[int(index)]
     return render_template("events.jinja", event_list = event_list, title = "Events List")
